@@ -85,6 +85,59 @@ document.addEventListener('DOMContentLoaded', function () {
     startAuto();
   }
 
+  // Animated wave banner (flowing "water line" canvas, vanilla JS, no dependencies)
+  var waveCanvas = document.getElementById('waveCanvas');
+  if (waveCanvas) {
+    var ctx = waveCanvas.getContext('2d');
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var w, h, dpr;
+
+    function resizeWave() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = waveCanvas.clientWidth;
+      h = waveCanvas.clientHeight;
+      waveCanvas.width = w * dpr;
+      waveCanvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    window.addEventListener('resize', resizeWave, { passive: true });
+    resizeWave();
+
+    var waveLines = [
+      { color: 'rgba(31,127,196,0.55)', amp: 22, freq: 0.008, speed: 0.6, offset: 0 },
+      { color: 'rgba(108,196,239,0.4)', amp: 16, freq: 0.011, speed: -0.4, offset: 40 },
+      { color: 'rgba(14,86,135,0.65)', amp: 28, freq: 0.006, speed: 0.35, offset: -40 }
+    ];
+    var t = 0;
+
+    function drawWave() {
+      ctx.clearRect(0, 0, w, h);
+      waveLines.forEach(function (line) {
+        ctx.beginPath();
+        var yBase = h * 0.5 + line.offset;
+        for (var x = 0; x <= w; x += 4) {
+          var y = yBase
+            + Math.sin(x * line.freq + t * line.speed) * line.amp
+            + Math.sin(x * line.freq * 2.3 - t * line.speed * 0.6) * (line.amp * 0.35);
+          if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = line.color;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      });
+    }
+
+    if (reduceMotion) {
+      drawWave();
+    } else {
+      (function animateWave() {
+        t += 1;
+        drawWave();
+        requestAnimationFrame(animateWave);
+      })();
+    }
+  }
+
   // Contact form -> mailto (static site, no backend)
   var form = document.getElementById('quoteForm');
   var successMsg = document.getElementById('formSuccess');
