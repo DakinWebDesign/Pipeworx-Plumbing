@@ -50,7 +50,7 @@
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         <span class="phone-text">705-750-8767</span>
       </a>
-      <a href="#contact" class="btn btn-copper">Get a Quote</a>
+      <a href="#contact" class="btn btn-blue">Get a Quote</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -60,12 +60,18 @@
 
 <!-- HERO — split panel -->
 <section class="hero" id="top">
+  <svg class="hero-lines" viewBox="0 0 700 800" fill="none" aria-hidden="true">
+    <path class="flow-path" d="M-20 120C120 60 180 220 320 180S520 40 700 140" stroke="currentColor" stroke-width="1.5"/>
+    <path class="flow-path" d="M-20 320C140 260 220 420 360 380S560 260 720 360" stroke="currentColor" stroke-width="1.5"/>
+    <path class="flow-path" d="M-20 520C120 460 200 620 340 580S540 460 720 560" stroke="currentColor" stroke-width="1.5"/>
+    <path class="flow-path" d="M-20 700C140 640 220 760 360 720S560 640 720 720" stroke="currentColor" stroke-width="1.5"/>
+  </svg>
   <div class="hero-panel">
     <div class="hero-badge"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 Rated on Google &amp; Facebook</div>
     <h1>Plumbing done <em>properly</em>, not just quickly.</h1>
     <p class="lead">Pipeworx Plumbing Ltd. is a licensed, insured contractor serving Peterborough, Millbrook, Kawartha Lakes and Northumberland County, handling everything from a dripping tap to a full basement rough-in.</p>
     <div class="hero-ctas">
-      <a href="tel:+17057508767" class="btn btn-copper">Call 705-750-8767</a>
+      <a href="tel:+17057508767" class="btn btn-blue">Call 705-750-8767</a>
       <a href="#contact" class="btn btn-line-light">Request a Quote</a>
     </div>
     <div class="hero-stats">
@@ -274,6 +280,16 @@
   </div>
 </section>
 
+<!-- WAVE BANNER -->
+<section class="wave-banner">
+  <canvas id="waveCanvas" aria-hidden="true"></canvas>
+  <div class="wave-banner-content container">
+    <h2>Need a plumber today?</h2>
+    <p>Same-day calls, straight answers, and work you can actually trust.</p>
+    <a href="tel:+17057508767" class="btn btn-blue">Call 705-750-8767</a>
+  </div>
+</section>
+
 <!-- CONTACT — combined dark split -->
 <section class="contact" id="contact">
   <div class="container">
@@ -348,7 +364,7 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="4" placeholder="Tell us a bit about the job..."></textarea>
         </div>
-        <button type="submit" class="btn btn-copper btn-block">Send Request</button>
+        <button type="submit" class="btn btn-blue btn-block">Send Request</button>
         <p class="form-note">By submitting this form you agree to be contacted by Pipeworx Plumbing Ltd.</p>
       </form>
     </div>
