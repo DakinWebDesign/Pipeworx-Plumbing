@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
       drawWave();
     } else {
       (function animateWave() {
-        t += 1;
+        t += 0.03;
         drawWave();
         requestAnimationFrame(animateWave);
       })();
