@@ -34,6 +34,13 @@ body {
 
 img { max-width: 100%; display: block; }
 
+/* Sharpen + subtle vibrance boost on real photos (SVG convolution, skips the logo) */
+.hero-photo,
+.about-media img,
+.masonry img {
+  filter: url(#photoSharpen) saturate(1.15) contrast(1.07) brightness(1.02);
+}
+
 h1, h2, h3, h4 {
   font-family: var(--ff-display);
   color: var(--ink);
